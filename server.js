@@ -1,5 +1,3 @@
-const express = require('express');
-
 const jsonServer = require('json-server')
 
 const server = jsonServer.create()
@@ -12,6 +10,7 @@ server.listen(3000, () => {
   console.log('JSON Server is running')
 })
 
+const express = require('express');
 const path = require('path');
 const nomeApp = process.env.npm_package_name;
 const app = express();

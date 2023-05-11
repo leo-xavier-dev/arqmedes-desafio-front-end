@@ -55,10 +55,10 @@
       "senha": "123",
       "cpf": "000.000.000-00",
       "profissao": "Profissão",
-      "dataNascimento": "01/01/2001",
+      "dataNascimento": "2023-05-02T03:00:00.000Z",
       "estadoCivil": "Solteiro(a)",
-      "cidade": "São Paulo",
-      "uf": "SP"
+      "cidade": "Abelardo Luz",
+      "uf": "SC"
     },
     {
       "id": 6,

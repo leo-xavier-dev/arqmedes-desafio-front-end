@@ -1,0 +1,29 @@
+.col {
+  width: 100%;
+  display: block;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.rigth {
+  float: right;
+}
+
+::ng-deep {
+  .mat-grid-tile-content {
+    justify-content: left !important;
+  }
+
+  .mat-form-field-appearance-fill .mat-form-field-flex {
+    height: 60px !important;
+  }
+
+  .mat-datepicker-toggle {
+    position: relative;
+    float: right;
+    top: -25px;
+    right: 10px;
+  }
+}

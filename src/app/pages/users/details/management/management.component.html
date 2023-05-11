@@ -1,0 +1,95 @@
+<h2 mat-dialog-title>Editar usuário</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+
+    <mat-grid-list [cols]="breakpoint" rowHeight="100px" (window:resize)="onResize($event)">
+
+      <mat-grid-tile [colspan]="(breakpoint == 5) ? 3 : 1">
+        <div class="col">
+          <mat-form-field appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="nome" placeholder="Ex.: João da Silva">
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="(breakpoint == 5) ? 2 : 1">
+        <div class="col">
+          <mat-form-field appearance="fill">
+            <mat-label>CPF</mat-label>
+            <input matInput formControlName="cpf" placeholder="000.000.000-00" mask="000.000.000-00">
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="(breakpoint == 5) ? 3 : 1">
+        <div class="col">
+          <mat-form-field appearance="fill">
+            <mat-label>Profissão</mat-label>
+            <input matInput formControlName="profissao" placeholder="Ex.: Programador">
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="(breakpoint == 5) ? 2 : 1">
+        <div class="col">
+          <mat-form-field appearance="fill">
+            <mat-label>Data de nascimento</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dataNascimento" readonly="true">
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="(breakpoint == 5) ? 2 : 1">
+        <div class="col">
+          <mat-form-field appearance="fill">
+            <mat-label>Estado Civil</mat-label>
+            <mat-select formControlName="estadoCivil">
+              <mat-option *ngFor="let civil of estadoCivil" [value]="civil.descricao">{{ civil.descricao }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="1">
+        <div class="col">
+          <mat-form-field appearance="fill">
+            <mat-label>UF</mat-label>
+            <mat-select (selectionChange)="setCidade($event.value)" formControlName="uf">
+              <mat-option *ngFor="let estado of estados" [value]="estado.sigla">
+                {{ estado.nome }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="(breakpoint == 5) ? 2 : 1">
+        <div class="col">
+          <mat-form-field appearance="fill">
+            <mat-label>Cidade</mat-label>
+            <mat-select formControlName="cidade">
+              <mat-option *ngFor="let cidade of cidades[0]?.cidades" [value]="cidade">{{ cidade }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Fechar</button>
+    <button mat-raised-button color="primary" [disabled]="!form.valid">Salvar</button>
+  </mat-dialog-actions>
+
+</form>
+
+<!-- <pre>
+  {{ form.value | json }}
+</pre> -->

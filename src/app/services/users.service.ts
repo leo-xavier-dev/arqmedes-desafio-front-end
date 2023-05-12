@@ -13,30 +13,30 @@ export class UsersService {
   ) { }
 
   public getUsers(): Observable<Users[]> {
-    return this._http.get<Users[]>(`http://localhost:3000/users`);
+    return this._http.get<Users[]>(`https://json-server-teste.herokuapp.com/users`);
   }
 
   public getEstados(): Observable<Estados[]> {
-    return this._http.get<Estados[]>(`http://localhost:3000/uf`);
+    return this._http.get<Estados[]>(`https://json-server-teste.herokuapp.com/uf`);
   }
 
   public getCidades(): Observable<Cidades[]> {
-    return this._http.get<Cidades[]>(`http://localhost:3000/estados`);
+    return this._http.get<Cidades[]>(`https://json-server-teste.herokuapp.com/estados`);
   }
 
   public getEstadoCivil(): Observable<EstadoCivil[]> {
-    return this._http.get<EstadoCivil[]>(`http://localhost:3000/estadoCivil`);
+    return this._http.get<EstadoCivil[]>(`https://json-server-teste.herokuapp.com/estadoCivil`);
   }
 
   public createUser(user: Users): Observable<Users> {
-    return this._http.post<Users>(`http://localhost:3000/users`, user);
+    return this._http.post<Users>(`https://json-server-teste.herokuapp.com/users`, user);
   }
 
   public updateUser(user: Users): Observable<Users> {
-    return this._http.put<Users>(`http://localhost:3000/users/${user.id}`, user);
+    return this._http.put<Users>(`https://json-server-teste.herokuapp.com/users/${user.id}`, user);
   }
 
   public deleteUser(user: Users): Observable<Users> {
-    return this._http.delete<Users>(`http://localhost:3000/users/${user.id}`);
+    return this._http.delete<Users>(`https://json-server-teste.herokuapp.com/users/${user.id}`);
   }
 }
